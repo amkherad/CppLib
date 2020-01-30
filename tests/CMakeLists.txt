@@ -1,7 +1,7 @@
 
 add_executable(
         CppLibTests
-        main.cpp
+        src/main.cpp
 )
 
-target_link_libraries("${PROJECT_NAME}" PRIVATE "${PROJECT_NAME}")
+target_link_libraries("CppLibTests" PRIVATE "${PROJECT_NAME}")
