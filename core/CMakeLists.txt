@@ -1,5 +1,5 @@
 
-set(LIBRARY_NAME "${PROJECT_NAME}")
+set(LIBRARY_NAME CppLib)
 
 add_library(
         "${LIBRARY_NAME}" SHARED
@@ -18,6 +18,16 @@ add_library(
         src/threading/ThreadPool.cpp
         src/threading/AsyncTask.hpp
         src/threading/AsyncTask.cpp
+        src/threading/Thread.hpp
+        src/threading/Thread.cpp
+        src/threading/Semaphore.hpp
+        src/threading/Semaphore.cpp
+        src/threading/Mutex.hpp
+        src/threading/Mutex.cpp
+        src/threading/ManualResetEvent.hpp
+        src/threading/ManualResetEvent.cpp
+        src/threading/AutoResetEvent.hpp
+        src/threading/AutoResetEvent.cpp
 
 )
 

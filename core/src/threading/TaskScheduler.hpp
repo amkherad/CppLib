@@ -6,12 +6,17 @@
 
 namespace CppLib {
 
-    typedef void TaskCallback(void *state);
-
     class AsyncTask;
 
     class TaskScheduler {
     private:
+        /**
+         * Determines if captureCurrentThread method should continue to block the calling thread.
+         *
+         * @remarks Because this field is has been double checked in captureCurrentThread method,
+         *          it's been marked as volatile to force compiler to read the value from memory instead of caching it in a register.
+         */
+        volatile bool _continue;
 
     public:
         TaskScheduler();
@@ -19,14 +24,33 @@ namespace CppLib {
         ~TaskScheduler();
 
 
+<<<<<<< Updated upstream
+=======
+        /**
+         * Captures the calling thread to execute pending async tasks in task queue on the calling thread. (mainly the main thread)
+         */
+>>>>>>> Stashed changes
         int captureCurrentThread();
 
+        /**
+         * Releases the captured thread.
+         */
         void release();
 
 
-        void add(TaskCallback *fn, void *state);
+        /**
+         * Pops one task from the async task queue and executes it on the calling thread.
+         * @return true if a task was executed, otherwise false.
+         */
+        bool pullAndExecute();
 
-        void flush();
+
+        /**
+         * Schedules a new AsyncTask for async execution in the current TaskScheduler.
+         * @param fn
+         * @param state
+         */
+        void schedule(const AsyncTask& asyncTask);
 
     };
 
