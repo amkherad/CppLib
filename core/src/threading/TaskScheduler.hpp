@@ -19,7 +19,7 @@ namespace CppLib {
         ~TaskScheduler();
 
 
-        void captureCurrentThread();
+        int captureCurrentThread();
 
         void release();
 

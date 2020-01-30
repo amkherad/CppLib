@@ -15,7 +15,7 @@ namespace CppLib {
     }
 
 
-    void TaskScheduler::captureCurrentThread() {
+    int TaskScheduler::captureCurrentThread() {
 
 
     }
