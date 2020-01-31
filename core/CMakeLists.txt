@@ -12,6 +12,9 @@ add_library(
         src/string/String.hpp
         src/string/String.cpp
 
+        src/data/LinkedList.hpp
+        src/data/LinkedList.cpp
+
         src/threading/TaskScheduler.hpp
         src/threading/TaskScheduler.cpp
         src/threading/ThreadPool.hpp

@@ -24,12 +24,9 @@ namespace CppLib {
         ~TaskScheduler();
 
 
-<<<<<<< Updated upstream
-=======
         /**
          * Captures the calling thread to execute pending async tasks in task queue on the calling thread. (mainly the main thread)
          */
->>>>>>> Stashed changes
         int captureCurrentThread();
 
         /**
@@ -44,6 +41,11 @@ namespace CppLib {
          */
         bool pullAndExecute();
 
+        /**
+         * Determines whether there are any more async tasks to be executed or not.
+         * @return
+         */
+        bool isEmpty();
 
         /**
          * Schedules a new AsyncTask for async execution in the current TaskScheduler.
