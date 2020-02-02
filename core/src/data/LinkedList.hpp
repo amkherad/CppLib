@@ -21,7 +21,10 @@ namespace CppLib {
 
         void append(const T &item);
 
-    };
+        unsigned int count();
+
+
+    }
 
 }
 

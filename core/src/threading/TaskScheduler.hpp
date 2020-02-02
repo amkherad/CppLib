@@ -7,6 +7,7 @@
 namespace CppLib {
 
     class AsyncTask;
+    class LinkedList;
 
     class TaskScheduler {
     private:
@@ -17,6 +18,8 @@ namespace CppLib {
          *          it's been marked as volatile to force compiler to read the value from memory instead of caching it in a register.
          */
         volatile bool _continue;
+
+        LinkedList* _tasks;
 
     public:
         TaskScheduler();

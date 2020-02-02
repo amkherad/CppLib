@@ -5,21 +5,28 @@
 
 namespace CppLib {
 
-    LinkedList::LinkedList() {
-
-    }
-
-    LinkedList::~LinkedList() {
+    template<typename T>
+    LinkedList<T>::LinkedList() {
 
     }
 
     template<typename T>
-    void LinkedList::append(const T &item) {
+    LinkedList<T>::~LinkedList() {
 
     }
 
     template<typename T>
-    void LinkedList::prepend(const T &item) {
+    unsigned int LinkedList<T>::count() {
+        return 0;
+    }
+
+    template<typename T>
+    void LinkedList<T>::append(const T &item) {
+
+    }
+
+    template<typename T>
+    void LinkedList<T>::prepend(const T &item) {
 
     }
 

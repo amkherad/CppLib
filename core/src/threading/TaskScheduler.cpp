@@ -45,12 +45,12 @@ namespace CppLib {
     }
 
     bool TaskScheduler::isEmpty() {
-
+        return _tasks.count() == 0;
     }
 
 
     void TaskScheduler::release() {
-
+        this->_continue = false;
     }
 
 
