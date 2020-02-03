@@ -32,7 +32,7 @@ add_library(
         src/threading/AutoResetEvent.hpp
         src/threading/AutoResetEvent.cpp
 
-)
+        src/threading/Monitor.cpp src/threading/Monitor.hpp src/threading/Interlocked.cpp src/threading/Interlocked.hpp src/threading/ThreadPoolJobInfo.cpp src/threading/ThreadPoolJobInfo.hpp)
 
 
 target_include_directories(

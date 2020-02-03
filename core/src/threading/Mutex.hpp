@@ -7,6 +7,18 @@
 namespace CppLib {
 
     class Mutex {
+    private:
+
+    public:
+        Mutex();
+
+        ~Mutex();
+
+
+        void release();
+
+        void waitOne();
+        void waitOne(unsigned int timeoutInMilliseconds);
 
     };
 

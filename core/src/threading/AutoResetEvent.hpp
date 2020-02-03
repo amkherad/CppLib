@@ -6,8 +6,25 @@
 
 namespace CppLib {
 
-    class AutoResetEvent {
+    class Mutex;
 
+    class AutoResetEvent {
+    private:
+        Mutex* _mutex;
+        bool _isSet;
+
+    public:
+        explicit AutoResetEvent(bool isSet);
+
+        ~AutoResetEvent();
+
+        void set();
+
+        void reset();
+
+        void wait();
+
+        void wait(unsigned int timeoutInMilliseconds);
     };
 
 }

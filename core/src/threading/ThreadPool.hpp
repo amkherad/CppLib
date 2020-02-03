@@ -4,10 +4,36 @@
 #ifndef CPPLIB_THREADPOOL_HPP
 #define CPPLIB_THREADPOOL_HPP
 
+#include "Mutex.hpp"
+
+typedef void ThreadPoolCallback();
+
+typedef void ThreadPoolCallbackWithState(void *state);
+
 namespace CppLib {
 
-    class ThreadPool {
+    template <typename T>
+    class LinkedList;
 
+    class ThreadPoolJobInfo;
+
+    class Thread;
+
+    class ThreadPool {
+    private:
+        LinkedList<ThreadPoolJobInfo>* _jobs;
+        Mutex* _exclusiveLock;
+
+        LinkedList<Thread>* _workerThreads;
+
+    public:
+        ThreadPool();
+
+        ~ThreadPool();
+
+        void queueWorkItem(ThreadPoolCallback *callback);
+
+        void queueWorkItem(ThreadPoolCallbackWithState *callback, void* state);
     };
 
 }
