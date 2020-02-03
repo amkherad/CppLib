@@ -15,7 +15,7 @@ namespace CppLib {
     template <typename T>
     class LinkedList;
 
-    class ThreadPoolJobInfo;
+    struct ThreadPoolJobInfo;
 
     class Thread;
 

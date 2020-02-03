@@ -7,14 +7,14 @@
 
 #include "ThreadPool.hpp"
 
-class ThreadPoolJobInfo {
+struct ThreadPoolJobInfo {
 public:
 
-    ThreadPoolCallback* _voidCallback;
+    ThreadPoolCallback* voidCallback;
 
-    ThreadPoolCallbackWithState* _stateCallback;
+    ThreadPoolCallbackWithState* stateCallback;
 
-    void* _state;
+    void* state;
 
 };
 

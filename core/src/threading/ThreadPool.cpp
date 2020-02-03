@@ -33,7 +33,7 @@ namespace CppLib {
 
         auto job = new ThreadPoolJobInfo();
 
-        job->_voidCallback = callback;
+        job->voidCallback = callback;
 
         _jobs->append(*job);
 
@@ -47,8 +47,8 @@ namespace CppLib {
 
         auto job = new ThreadPoolJobInfo();
 
-        job->_state = state;
-        job->_stateCallback = callback;
+        job->state = state;
+        job->stateCallback = callback;
 
         _jobs->append(*job);
 
