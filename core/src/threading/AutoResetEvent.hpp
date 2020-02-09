@@ -4,13 +4,15 @@
 #ifndef CPPLIB_AUTORESETEVENT_HPP
 #define CPPLIB_AUTORESETEVENT_HPP
 
+#include <memory>
+
 namespace CppLib {
 
     class Mutex;
 
     class AutoResetEvent {
     private:
-        Mutex* _mutex;
+        std::unique_ptr<Mutex> _mutex;
         bool _isSet;
 
     public:

@@ -8,7 +8,7 @@
 namespace CppLib {
 
     TaskScheduler::TaskScheduler() {
-
+        this->_tasks = std::make_unique<LinkedList<AsyncTask>>();
     }
 
     TaskScheduler::~TaskScheduler() {
@@ -45,7 +45,7 @@ namespace CppLib {
     }
 
     bool TaskScheduler::isEmpty() {
-        return _tasks.count() == 0;
+        return _tasks->count() == 0;
     }
 
 

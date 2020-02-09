@@ -6,12 +6,12 @@
 #include <Mutex.hpp>
 
 CppLib::AutoResetEvent::AutoResetEvent(bool isSet) {
-    _mutex = new Mutex();
+    _mutex = std::make_unique<Mutex>();
     _isSet = isSet;
 }
 
 CppLib::AutoResetEvent::~AutoResetEvent() {
-    delete _mutex;
+
 }
 
 void CppLib::AutoResetEvent::set() {

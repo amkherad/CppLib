@@ -10,9 +10,9 @@ namespace CppLib {
 
 
     ThreadPool::ThreadPool() {
-        _workerThreads = new LinkedList<Thread>();
-        _jobs = new LinkedList<ThreadPoolJobInfo>();
-        _exclusiveLock = new Mutex();
+        _workerThreads = std::make_unique<LinkedList<Thread>>();
+        _jobs = std::make_unique<LinkedList<ThreadPoolJobInfo>>();
+        _exclusiveLock = std::make_unique<Mutex>();
     }
 
     ThreadPool::~ThreadPool() {
@@ -22,16 +22,15 @@ namespace CppLib {
 
 
         _exclusiveLock->release();
-
-        delete _exclusiveLock;
-        delete _jobs;
     }
 
     void ThreadPool::queueWorkItem(ThreadPoolCallback *callback) {
 
         _exclusiveLock->waitOne();
 
-        auto job = new ThreadPoolJobInfo();
+        auto job = new ThreadPoolJobInfo{
+
+        };
 
         job->voidCallback = callback;
 

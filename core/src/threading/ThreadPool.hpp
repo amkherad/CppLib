@@ -5,6 +5,7 @@
 #define CPPLIB_THREADPOOL_HPP
 
 #include "Mutex.hpp"
+#include <memory>
 
 typedef void ThreadPoolCallback();
 
@@ -21,10 +22,10 @@ namespace CppLib {
 
     class ThreadPool {
     private:
-        LinkedList<ThreadPoolJobInfo>* _jobs;
-        Mutex* _exclusiveLock;
+        std::unique_ptr<LinkedList<ThreadPoolJobInfo>> _jobs;
+        std::unique_ptr<Mutex> _exclusiveLock;
 
-        LinkedList<Thread>* _workerThreads;
+        std::unique_ptr<LinkedList<Thread>> _workerThreads;
 
     public:
         ThreadPool();

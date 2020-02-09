@@ -4,10 +4,12 @@
 #ifndef CPPLIB_TASKSCHEDULER_HPP
 #define CPPLIB_TASKSCHEDULER_HPP
 
+#include <LinkedList.hpp>
+#include <memory>
+
 namespace CppLib {
 
     class AsyncTask;
-    class LinkedList;
 
     class TaskScheduler {
     private:
@@ -19,7 +21,7 @@ namespace CppLib {
          */
         volatile bool _continue;
 
-        LinkedList* _tasks;
+        std::unique_ptr<LinkedList<AsyncTask>> _tasks;
 
     public:
         TaskScheduler();
