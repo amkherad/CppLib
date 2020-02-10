@@ -10,10 +10,6 @@ CppLib::AutoResetEvent::AutoResetEvent(bool isSet) {
     _isSet = isSet;
 }
 
-CppLib::AutoResetEvent::~AutoResetEvent() {
-
-}
-
 void CppLib::AutoResetEvent::set() {
 
     _mutex->waitOne();

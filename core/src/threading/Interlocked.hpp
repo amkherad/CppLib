@@ -7,8 +7,8 @@
 
 class Interlocked {
 
-    static int Increment(const int& reference);
-    static int Decrement(const int& reference);
+    static int increment(const int& reference);
+    static int decrement(const int& reference);
 
 };
 

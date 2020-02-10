@@ -15,6 +15,8 @@ namespace CppLib {
 
         static void sleep(unsigned int milliseconds);
 
+        static void ensureInitialized(void ** ptr, void *(*initilizer)());
+
     };
 
 }

@@ -14,4 +14,8 @@ namespace CppLib {
     void Thread::sleep(unsigned int milliseconds) {
 
     }
+
+    void Thread::ensureInitialized(void **ptr, void *(*initilizer)()) {
+
+    }
 }

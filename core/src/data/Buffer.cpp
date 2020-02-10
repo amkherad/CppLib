@@ -24,8 +24,10 @@ namespace CppLib {
 
     Buffer::Buffer(void *ptr, unsigned long pos, unsigned long size) {
         if (size == 0) {
+
             this->_size = 0;
             this->_ptr = nullptr;
+
         } else {
 
             this->_size = size;
