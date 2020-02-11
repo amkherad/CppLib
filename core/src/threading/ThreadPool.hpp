@@ -28,6 +28,8 @@ namespace CppLib {
         int _minWorkerThreads;
         int _maxWorkerThreads;
 
+        std::atomic<int> _parkedThreads;
+
         bool _continue;
 
         std::unique_ptr<Monitor::ConditionalLockTarget> _conditionalLock;
@@ -42,6 +44,11 @@ namespace CppLib {
         ~ThreadPool();
 
 
+        /**
+         * Sets the minimum and maximum parked threads in the thread pool.
+         * @param minWorkerThreads minimum parked threads.
+         * @param maxWorkerThreads maximum parked threads.
+         */
         void setWorkerThreads(int minWorkerThreads, int maxWorkerThreads);
 
 
