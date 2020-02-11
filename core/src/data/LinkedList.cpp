@@ -30,4 +30,14 @@ namespace CppLib {
 
     }
 
+    template<typename T>
+    T LinkedList<T>::pop() const {
+        return nullptr;
+    }
+
+    template<typename T>
+    void LinkedList<T>::push(const T &item) {
+
+    }
+
 }

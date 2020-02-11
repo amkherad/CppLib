@@ -5,24 +5,33 @@
 
 namespace CppLib {
 
-    AsyncTask::AsyncTask() {
+    template<typename T>
+    AsyncTask<T>::AsyncTask() {
 
     }
 
-    AsyncTask::~AsyncTask() {
+    template<typename T>
+    AsyncTask<T>::~AsyncTask() {
 
     }
 
-    bool AsyncTask::isFinished() {
-        return false;
-    }
-
-    bool AsyncTask::isError() {
+    template<typename T>
+    bool AsyncTask<T>::isFinished() {
         return false;
     }
 
     template<typename T>
-    T AsyncTask::result() {
+    bool AsyncTask<T>::isError() {
+        return false;
+    }
+
+    template<typename T>
+    T AsyncTask<T>::result() {
+        return nullptr;
+    }
+
+    template<typename T>
+    T AsyncTask<T>::wait() {
         return nullptr;
     }
 

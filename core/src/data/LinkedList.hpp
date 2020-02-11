@@ -16,10 +16,16 @@ namespace CppLib {
 
         ~LinkedList();
 
+        T get(unsigned int i) const;
+        void set(const T &item);
 
         void prepend(const T &item);
 
         void append(const T &item);
+
+        T pop() const;
+
+        void push(const T &item);
 
         unsigned int count();
 

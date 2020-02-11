@@ -6,6 +6,7 @@
 
 namespace CppLib {
 
+    template <typename T>
     class AsyncTask {
 
     public:
@@ -19,7 +20,9 @@ namespace CppLib {
         bool isError();
 
 
-        template <typename T>
+        T wait();
+
+
         T result();
 
     };

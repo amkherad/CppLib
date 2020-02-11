@@ -6,10 +6,16 @@
 
 namespace CppLib {
 
+    typedef void ThreadCallback();
+    typedef void ThreadCallbackWithState(void* state);
+
     class Thread {
 
     public:
+        explicit Thread(ThreadCallback* callback);
+        explicit Thread(ThreadCallbackWithState* callback, void* state);
 
+        void join();
 
         static void yield();
 

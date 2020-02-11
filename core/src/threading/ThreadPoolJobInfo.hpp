@@ -7,16 +7,32 @@
 
 #include "ThreadPool.hpp"
 
-struct ThreadPoolJobInfo {
-public:
+namespace CppLib {
 
-    ThreadPoolCallback* voidCallback;
+    typedef void ThreadPoolCallback();
 
-    ThreadPoolCallbackWithState* stateCallback;
+    typedef void ThreadPoolCallbackWithState(void *state);
 
-    void* state;
 
-};
+    class ThreadPoolJobInfo {
+    private:
+        ThreadPoolCallback *_voidCallback;
 
+        ThreadPoolCallbackWithState *_stateCallback;
+
+        void *_state;
+
+        bool _isWithState;
+
+    public:
+        explicit ThreadPoolJobInfo(ThreadPoolCallback* callback);
+
+        explicit ThreadPoolJobInfo(ThreadPoolCallbackWithState* callback, void* state);
+
+        void execute();
+
+    };
+
+}
 
 #endif //CPPLIB_THREADPOOLJOBINFO_HPP

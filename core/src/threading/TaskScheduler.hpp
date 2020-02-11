@@ -10,6 +10,7 @@
 namespace CppLib {
 
     class AsyncTask;
+    class ThreadPool;
 
     class TaskScheduler {
     private:
@@ -21,10 +22,12 @@ namespace CppLib {
          */
         volatile bool _continue;
 
-        std::unique_ptr<LinkedList<AsyncTask>> _tasks;
+        ThreadPool* _threadPool;
+
+        LinkedList<AsyncTask*>* _tasks;
 
     public:
-        TaskScheduler();
+        explicit TaskScheduler(const ThreadPool& threadPool);
 
         ~TaskScheduler();
 

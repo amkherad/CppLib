@@ -7,6 +7,20 @@
 
 namespace CppLib {
 
+    Thread::Thread(ThreadCallback *callback) {
+
+    }
+
+    Thread::Thread(ThreadCallbackWithState *callback, void *state) {
+
+    }
+
+    void Thread::join() {
+
+    }
+
+
+
     void CppLib::Thread::yield() {
         pthread_yield();
     }

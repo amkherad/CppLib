@@ -4,14 +4,16 @@
 #include "TaskScheduler.hpp"
 #include "AsyncTask.hpp"
 #include <Thread.hpp>
+#include <ThreadPool.hpp>
 
 namespace CppLib {
 
-    TaskScheduler::TaskScheduler() {
-        this->_tasks = std::make_unique<LinkedList<AsyncTask>>();
-    }
+    TaskScheduler::TaskScheduler(const ThreadPool& threadPool) {
 
-    TaskScheduler::~TaskScheduler() {
+        this->_continue = true;
+
+        this->_tasks = new LinkedList<AsyncTask*>();
+        this->_threadPool = const_cast<ThreadPool*>(&threadPool);
 
     }
 
@@ -55,6 +57,8 @@ namespace CppLib {
 
 
     void TaskScheduler::schedule(const AsyncTask &asyncTask) {
+
+        this->_threadPool->queueWorkItem(asyncTask)
 
     }
 
